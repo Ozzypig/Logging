@@ -162,9 +162,6 @@ Replace `pcall` &rarr; `logger:pcall` and `xpcall` &rarr; `logger:xpcall` and an
 Error is logged automatically if the function raises one.
 
 ```lua
--- Replace pcall or xpcall with logger equivalent to warn if the function fails
-logger:pcall(myUnsafeFunction, ...)
-logger:xpcall(myUnsafeFunction, myErrorHandler, ...)
--- The module itself also has all these, which operate on a "root" logger:
-Logging:debug("Hello, world")
+logger:pcall(error, "Oh noes") --> logger:error("Oh noes")
+logger:xpcall(error, print, "Whoops") --> logger:error("Whoops"), then print("Whoops")
 ```
