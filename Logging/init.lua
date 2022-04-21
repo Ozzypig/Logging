@@ -84,7 +84,12 @@ end
 
 --[=[
 	@since 0.1.0
-	Attaches an [OutputHandler] with a [Formatter] to the root logger.
+	Attaches an [OutputHandler] with a [Formatter] to the root logger. The following keys can be specified:
+
+	* `level` [Level]: The level to set the root logger. Default: [Level.Warning]
+	* `format` string: The [Formatter.fmt] of the [OutputHandler]. Default: `%(message)s`
+	* `force` boolean: If true, adds the new handler even if the root logger already has one.
+
 	@param options table
 ]=]
 function Logging:basicConfig(options)
