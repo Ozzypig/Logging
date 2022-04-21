@@ -155,8 +155,8 @@ because it's preferable to attach an `OutputHandler` ideally using `Logging:basi
 
 ### `pcall` and `xpcall`
 
-Replace `pcall` with `logger:pcall` and if the passed functions raise an error, that
-error emits an Error log automatically!
+Replace `pcall` &rarr; `logger:pcall` and `xpcall` &rarr; `logger:xpcall` and an
+Error is logged automatically if the function raises one.
 
 ```lua
 -- Replace pcall or xpcall with logger equivalent to warn if the function fails
