@@ -31,13 +31,18 @@ Or check out the [docs](docs/index.md) directory (WIP).
 
 ## Development
 
-This project is built using [Rojo 7](https://github.com/rojo-rbx/rojo), and linted
-using [selene](https://github.com/Kampfkarren/selene).
-
-* [default.project.json](default.project.json) builds the library as a model, and
-  can be included in Rojo projects which depend on this library.
-* [test.project.json](test.project.json) builds a place which runs unit tests
-  (open in Roblox Studio and click Run).
-  * Tests can be found in [tests/Tests.lua](tests/Tests.lua)
-
-A [Makefile](Makefile) is included with several various useful targets (`test`, `serve`).
+* [Logging.code-workspace](Logging.code-workspace) for [Visual Studio Code](https://code.visualstudio.com/)
+* Markdown (.md) linted using [markdownlint](https://github.com/DavidAnson/markdownlint),
+  configured with [.markdownlint.yaml](.markdownlint.yaml)
+* Luau code (.lua) linted using [selene](https://github.com/Kampfkarren/selene),
+  configured with [selene.toml](selene.toml)
+* Built using [Rojo 7](https://github.com/rojo-rbx/rojo):
+  * [default.project.json](default.project.json) builds the library as a model, and
+    can be included in other Rojo projects which depend on this library.
+  * [test.project.json](test.project.json) builds a place which runs unit tests
+    (open in Roblox Studio and click Run).
+    * Tests can be found in [tests/Tests.lua](tests/Tests.lua)
+* [Makefile](Makefile) included with several useful targets (`test`, `serve`)
+  which operate on the Rojo project files above.
+* [wally.toml](wally.toml): package
+  manifest for [wally](https://github.com/UpliftGames/wally)
