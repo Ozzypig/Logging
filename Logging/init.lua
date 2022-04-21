@@ -154,6 +154,15 @@ end
 
 --[=[
 	@since 0.1.0
+	Proxy for [Logger:filter] on the root logger.
+	@method filter
+	@within Logging
+	@tag Filtering
+	@return boolean
+]=]
+
+--[=[
+	@since 0.1.0
 	Proxy for [Logger:addHandler] on the root logger.
 	@method addHandler
 	@within Logging
@@ -168,15 +177,6 @@ end
 	@within Logging
 	@tag Handling
 	@param handler Handler
-]=]
-
---[=[
-	@since 0.1.0
-	Proxy for [Logger:filter] on the root logger.
-	@method filter
-	@within Logging
-	@tag Filtering
-	@return boolean
 ]=]
 
 --[=[
