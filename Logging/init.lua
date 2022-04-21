@@ -207,6 +207,7 @@ end
 	Proxy for [Logger:info] on the root logger.
 	@method info
 	@within Logging
+	@tag Logging
 	@param message RecordMessage
 	@param ... any
 	@return Record
