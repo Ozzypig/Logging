@@ -40,7 +40,7 @@ serve :
 MOONWAVE = moonwave
 
 docs : clean-docs
-	$(MOONWAVE) build
+	$(MOONWAVE) build --code $(SRC)
 
 docs-serve :
 	$(MOONWAVE) dev --code $(SRC)
