@@ -13,7 +13,7 @@ onBrokenMarkdownLinks = "warn"
 organizationName = "Ozzypig"
 projectName = "Logging"
 url = "https://docs.ozzypig.com"
-baseUrl = "/"
+baseUrl = "/Logging/"
 tagline = "A logging facility for Roblox"
 trailingSlash = false
 
