@@ -88,7 +88,7 @@ itself and the record to filter. If any filter returns false, the record is igno
 
 ```lua
 logger:addFilter(function (logger, record)
-	-- Ignore messages shorter than 10 bytes:
+	-- Handle only messages shorter than 10 bytes:
 	return record:getMessage():len() < 10
 end)
 ```
