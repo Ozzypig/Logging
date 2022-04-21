@@ -32,7 +32,7 @@ $(OUT_TEST) : $(ROJO_PROJECT_TEST) $(SRC_TEST)
 
 $(SRC_TEST) : $(shell find $(SRC) -type f)
 
-serve : test
+serve :
 	$(ROJO) serve $(ROJO_PROJECT_TEST)
 
 # Docs
