@@ -70,6 +70,14 @@ function Logger:getEffectiveLevel()
 	return self.level ~= Level.NotSet and self.level or (self.parent and self.parent:getEffectiveLevel() or Level.NotSet)
 end
 
+function Logger:isEnabledFor(level)
+	if typeof(level) == "string" then
+		level = assert(Level[level], "No such level: " .. level)
+	end
+	assert(typeof(level) == "number", "level must be number, is " .. typeof(level))
+	return self:getEffectiveLevel() <= level
+end
+
 function Logger:addHandler(handler)
 	local ty = typeof(handler)
 	if ty == "function" then
@@ -115,14 +123,6 @@ function Logger:filter(record)
 		end
 	end
 	return true
-end
-
-function Logger:isEnabledFor(level)
-	if typeof(level) == "string" then
-		level = assert(Level[level], "No such level: " .. level)
-	end
-	assert(typeof(level) == "number", "level must be number, is " .. typeof(level))
-	return self:getEffectiveLevel() <= level
 end
 
 function Logger:newRecord(level, message, ...)
