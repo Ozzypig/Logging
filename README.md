@@ -1,4 +1,4 @@
-# Logging 0.1.0
+# Logging v0.2.0
 
 **Logging** is a logging library for Roblox that takes after
 [Python's logging](https://docs.python.org/3/library/logging.html) library. It
