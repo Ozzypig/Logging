@@ -1,0 +1,10 @@
+# Build output
+*.rbxmx
+*.rbxlx
+
+# Roblox Studio lock files
+*.rbxlx.lock
+*.rbxl.lock
+
+# selene
+roblox.toml

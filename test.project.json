@@ -1,0 +1,17 @@
+{
+	"name": "Logging (test)",
+	"tree": {
+		"$className": "DataModel",
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"$path": "test",
+			"$ignoreUnknownInstances": true
+		},
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"Logging": {
+				"$path": "Logging"
+			}
+		}
+	}
+}
