@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 # Getting Started
 
 Call `Logging:basicConfig` with a config table! This will set the log level and a

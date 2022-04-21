@@ -1,3 +1,6 @@
+---
+sidebar_position: 3
+---
 # Differences from Python logging
 
 Although this library is based on the [Python logging](https://docs.python.org/3/library/logging.html)
