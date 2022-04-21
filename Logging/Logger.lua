@@ -78,6 +78,27 @@ function Logger:isEnabledFor(level)
 	return self:getEffectiveLevel() <= level
 end
 
+function Logger:addFilter(filter)
+	assert(typeof(filter) == "function", "filter must be a function, got " .. typeof(filter))
+	self.filters[filter] = filter
+end
+
+function Logger:removeFilter(filter)
+	self.filters[filter] = nil
+end
+
+function Logger:filter(record)
+	if not self:isEnabledFor(record.level) then
+		return false
+	end
+	for filter in pairs(self.filters) do
+		if not filter(self, record) then
+			return false
+		end
+	end
+	return true
+end
+
 function Logger:addHandler(handler)
 	local ty = typeof(handler)
 	if ty == "function" then
@@ -102,27 +123,6 @@ function Logger:removeHandler(handler)
 		assert(ty == "table", "function or table expected, got " .. ty)
 	end
 	self.handlers[handler] = nil
-end
-
-function Logger:addFilter(filter)
-	assert(typeof(filter) == "function", "filter must be a function, got " .. typeof(filter))
-	self.filters[filter] = filter
-end
-
-function Logger:removeFilter(filter)
-	self.filters[filter] = nil
-end
-
-function Logger:filter(record)
-	if not self:isEnabledFor(record.level) then
-		return false
-	end
-	for filter in pairs(self.filters) do
-		if not filter(self, record) then
-			return false
-		end
-	end
-	return true
 end
 
 function Logger:newRecord(level, message, ...)
