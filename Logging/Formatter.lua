@@ -21,23 +21,23 @@ function Formatter:setFormat(fmt)
 	self.fmt = fmt
 end
 
-function Formatter:format(logRecord)
+function Formatter:format(record)
 	return self.fmt:gsub("%%%((.-)%).", function (s)
 		if s == Formatter.S_MESSAGE then
-			return logRecord:getMessage()
+			return record:getMessage()
 		elseif s == Formatter.S_NAME then
-			return logRecord.logger:getFullName()
+			return record.logger:getFullName()
 		elseif s == Formatter.S_LEVEL then
 			for k, v in pairs(Level) do
-				if v == logRecord.level then
+				if v == record.level then
 					return k
 				end
 			end
 			return "?"
 		elseif s == Formatter.S_LEVELNO then
-			return tostring(logRecord.level)
+			return tostring(record.level)
 		elseif s == Formatter.S_ASCTIME then
-			return os.date(Formatter.ASCTIME_FORMAT, logRecord.created)
+			return os.date(Formatter.ASCTIME_FORMAT, record.created)
 		end
 	end)
 end
