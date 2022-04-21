@@ -125,12 +125,12 @@ function Logger:isEnabledFor(level)
 	return self:getEffectiveLevel() <= level
 end
 
-function Logger:newRecord(...)
-	return self.RecordClass.new(...)
+function Logger:newRecord(level, message, ...)
+	return self.RecordClass.new(self, level, message, ...)
 end
 
-function Logger:log(...)
-	local record = self:newRecord(self, ...)
+function Logger:log(level, message, ...)
+	local record = self:newRecord(level, message, ...)
 	if self:filter(record) then
 		self:emit(record)
 	end
@@ -152,26 +152,26 @@ function Logger:emit(record)
 	end
 end
 
-function Logger:debug(...)
-	return self:log(Level.Debug, ...)
+function Logger:debug(message, ...)
+	return self:log(Level.Debug, message, ...)
 end
 Logger.print = Logger.debug
 
-function Logger:info(...)
-	return self:log(Level.Info, ...)
+function Logger:info(message, ...)
+	return self:log(Level.Info, message, ...)
 end
 
-function Logger:warning(...)
-	return self:log(Level.Warning, ...)
+function Logger:warning(message, ...)
+	return self:log(Level.Warning, message, ...)
 end
 Logger.warn = Logger.warning
 
-function Logger:error(...)
-	return self:log(Level.Error, ...)
+function Logger:error(message, ...)
+	return self:log(Level.Error, message, ...)
 end
 
-function Logger:critical(...)
-	return self:log(Level.Critical, ...)
+function Logger:critical(message, ...)
+	return self:log(Level.Critical, message, ...)
 end
 
 function Logger:wrap(callOriginal)
