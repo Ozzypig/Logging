@@ -22,6 +22,10 @@ function Handler:setLevel(level)
 	self.level = level
 end
 
+function Handler:isEnabledFor(level)
+	return self.level <= level
+end
+
 function Handler:addFilter(filter)
 	assert(typeof(filter) == "function", "filter must be a function, got " .. typeof(filter))
 	self.filters[filter] = filter
@@ -32,7 +36,7 @@ function Handler:removeFilter(filter)
 end
 
 function Handler:filter(record)
-	if self.level > record.level then
+	if not self:isEnabledFor(record.level) then
 		--print(("Handler filtered on level (%d < %d)"):format(self.level, record.level))
 		return false
 	end
