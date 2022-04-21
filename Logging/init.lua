@@ -131,6 +131,7 @@ end
 	@method setLevel
 	@within Logging
 	@tag Filtering
+	@tag Proxy
 	@param level Level
 ]=]
 
@@ -140,6 +141,7 @@ end
 	@method addFilter
 	@within Logging
 	@tag Filtering
+	@tag Proxy
 	@param filter Filter
 ]=]
 
@@ -149,6 +151,7 @@ end
 	@method removeFilter
 	@within Logging
 	@tag Filtering
+	@tag Proxy
 	@param filter Filter
 ]=]
 
@@ -158,6 +161,7 @@ end
 	@method filter
 	@within Logging
 	@tag Filtering
+	@tag Proxy
 	@return boolean
 ]=]
 
@@ -167,6 +171,7 @@ end
 	@method addHandler
 	@within Logging
 	@tag Handling
+	@tag Proxy
 	@param handler Handler
 ]=]
 
@@ -176,6 +181,7 @@ end
 	@method removeHandler
 	@within Logging
 	@tag Handling
+	@tag Proxy
 	@param handler Handler
 ]=]
 
@@ -185,6 +191,7 @@ end
 	@method log
 	@within Logging
 	@tag Logging
+	@tag Proxy
 	@param level Level
 	@param message RecordMessage
 	@param ... any
@@ -197,6 +204,7 @@ end
 	@method debug
 	@within Logging
 	@tag Logging
+	@tag Proxy
 	@param message RecordMessage
 	@param ... any
 	@return Record
@@ -208,6 +216,7 @@ end
 	@method info
 	@within Logging
 	@tag Logging
+	@tag Proxy
 	@param message RecordMessage
 	@param ... any
 	@return Record
@@ -219,6 +228,7 @@ end
 	@method warning
 	@within Logging
 	@tag Logging
+	@tag Proxy
 	@param message RecordMessage
 	@param ... any
 	@return Record
@@ -230,6 +240,7 @@ end
 	@method error
 	@within Logging
 	@tag Logging
+	@tag Proxy
 	@param message RecordMessage
 	@param ... any
 	@return Record
@@ -241,6 +252,7 @@ end
 	@method critical
 	@within Logging
 	@tag Logging
+	@tag Proxy
 	@param message RecordMessage
 	@param ... any
 	@return Record
@@ -252,6 +264,7 @@ end
 	@method wrap
 	@within Logging
 	@tag Sugar
+	@tag Proxy
 	@param callOriginal boolean
 	@return function, function
 ]=]
@@ -262,6 +275,7 @@ end
 	@method pcall
 	@within Logging
 	@tag Sugar
+	@tag Proxy
 	@param func function
 	@param ... any
 	@return any
@@ -273,6 +287,7 @@ end
 	@method xpcall
 	@within Logging
 	@tag Sugar
+	@tag Proxy
 	@param func function
 	@param errorHandler function
 	@param ... any
