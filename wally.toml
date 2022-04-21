@@ -1,0 +1,15 @@
+[package]
+name = "Ozzypig/Logging"
+description = "A logging facility for Roblox"
+version = "0.2.0"
+license = "MIT"
+authors = ["Ozzypig"]
+realm = "shared"
+registry = "https://github.com/upliftgames/wally-index"
+exclude = []
+
+[dependencies]
+
+[server-dependencies]
+
+[dev-dependencies]
