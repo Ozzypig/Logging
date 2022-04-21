@@ -11,7 +11,7 @@ OUT_TEST = Logging.rbxlx
 SRC = Logging
 SRC_VERSION = $(SRC)/Version.lua
 
-.PHONY = test serve clean clean-build clean-test clean-src-version
+.PHONY = test serve docs clean clean-docs clean-build clean-test clean-src-version
 
 # Main build
 
@@ -35,9 +35,22 @@ $(SRC_TEST) : $(shell find $(SRC) -type f)
 serve : test
 	$(ROJO) serve $(ROJO_PROJECT_TEST)
 
+# Docs
+
+MOONWAVE = moonwave
+
+docs : clean-docs
+	$(MOONWAVE) build
+
+docs-serve :
+	$(MOONWAVE) dev --code $(SRC)
+
 # Clean
 
 clean : clean-build clean-test clean-src-version
+
+clean-docs :
+	$(RM) -r build
 
 clean-build :
 	$(RM) $(OUT)

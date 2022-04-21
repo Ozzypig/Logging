@@ -1,0 +1,25 @@
+title = "Logging"
+gitRepoUrl = "https://github.com/Ozzypig/Logging"
+
+gitSourceBranch = "main"
+changelog = true
+classOrder = []
+
+[docusaurus]
+onBrokenLinks = "throw"
+onBrokenMarkdownLinks = "warn"
+#favicon = ""
+
+organizationName = "Ozzypig"
+projectName = "Logging"
+url = "https://docs.ozzypig.com"
+baseUrl = "/"
+tagline = "A logging facility for Roblox"
+trailingSlash = false
+
+#[navbar]
+#ideableSidebar = true
+
+[footer]
+style = "dark"
+copyright = "© Ozzypig"

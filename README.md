@@ -46,3 +46,5 @@ Or check out the [docs](docs/index.md) directory (WIP).
   which operate on the Rojo project files above.
 * [wally.toml](wally.toml): package
   manifest for [wally](https://github.com/UpliftGames/wally)
+* [moonwave.toml](moonwave.toml): Configuration for building documentation using
+  [Moonwave](https://github.com/UpliftGames/moonwave)
