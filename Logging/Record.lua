@@ -1,12 +1,12 @@
 local Record = {}
 Record.__index = Record
 
-function Record.new(logger, level, format, ...)
+function Record.new(logger, level, message, ...)
 	assert(typeof(level) == "number", "Level must be a number (use Logging.Level constants)")
 	local self = setmetatable({
 		logger = logger;
 		level = level;
-		format = format;
+		message = message;
 		values = {...};
 		created = os.time();
 		handled = false;
@@ -19,7 +19,7 @@ function Record:__tostring()
 end
 
 function Record:getMessage()
-	return self.format:format(unpack(self.values))
+	return self.message:format(unpack(self.values))
 end
 
 return Record
