@@ -9,12 +9,14 @@ OUT = Logging-v$(VERSION).rbxmx
 OUT_TEST = Logging.rbxlx
 
 SRC = Logging
+SRC_VERSION = $(SRC)/Version.lua
 
-.PHONY = test serve clean clean-build clean-test
+.PHONY = test serve clean clean-build clean-test clean-src-version
 
 # Main build
 
 $(OUT) : $(ROJO_PROJECT) $(SRC)
+	echo "return \"$(VERSION)\"" > $(SRC_VERSION)
 	$(ROJO) build $(ROJO_PROJECT) --output $(OUT)
 
 $(SRC) : $(shell find $(SRC) -type f)
@@ -35,10 +37,13 @@ serve : test
 
 # Clean
 
-clean : clean-build clean-test
+clean : clean-build clean-test clean-src-version
 
 clean-build :
 	$(RM) $(OUT)
 
 clean-test :
 	$(RM) $(OUT_TEST)
+
+clean-src-version :
+	$(RM) $(SRC_VERSION)

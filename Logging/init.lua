@@ -2,6 +2,7 @@ local Logging = {}
 Logging.__index = Logging
 Logging.Logging = Logging
 
+Logging.Version = require(script:WaitForChild("Version"))
 Logging.Level = require(script:WaitForChild("Level"))
 Logging.Record = require(script:WaitForChild("Record"))
 Logging.Logger = require(script:WaitForChild("Logger"))
