@@ -1,0 +1,44 @@
+title = "Logging"
+gitRepoUrl = "https://github.com/Ozzypig/Logging"
+
+gitSourceBranch = "main"
+changelog = true
+
+[[classOrder]]
+classes = [
+	"Logging",
+	"Level",
+	"Logger",
+	"Record",
+	"Formatter"
+]
+
+[[classOrder]]
+section = "Handlers"
+collapsed = false
+classes = [
+	"Handler",
+	"NullHandler",
+	"FuncHandler",
+	"OutputHandler",
+	"MemoryHandler"
+]
+
+[docusaurus]
+onBrokenLinks = "throw"
+onBrokenMarkdownLinks = "warn"
+#favicon = ""
+
+organizationName = "Ozzypig"
+projectName = "Logging"
+url = "https://docs.ozzypig.com"
+baseUrl = "/Logging/"
+tagline = "A logging facility for Roblox"
+trailingSlash = true
+
+#[navbar]
+#ideableSidebar = true
+
+[footer]
+style = "dark"
+copyright = "© Ozzypig"

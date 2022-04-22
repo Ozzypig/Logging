@@ -1,3 +1,6 @@
+# Version
+Logging/Version.lua
+
 # Build output
 *.rbxmx
 *.rbxlx
@@ -8,3 +11,6 @@
 
 # selene
 roblox.toml
+
+# Moonwave
+build

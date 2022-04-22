@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 # Getting Started
 
 Call `Logging:basicConfig` with a config table! This will set the log level and a
@@ -85,7 +88,7 @@ itself and the record to filter. If any filter returns false, the record is igno
 
 ```lua
 logger:addFilter(function (logger, record)
-	-- Ignore messages shorter than 10 bytes:
+	-- Handle only messages shorter than 10 bytes:
 	return record:getMessage():len() < 10
 end)
 ```
@@ -155,13 +158,10 @@ because it's preferable to attach an `OutputHandler` ideally using `Logging:basi
 
 ### `pcall` and `xpcall`
 
-Replace `pcall` with `logger:pcall` and if the passed functions raise an error, that
-error emits an Error log automatically!
+Replace `pcall` &rarr; `logger:pcall` and `xpcall` &rarr; `logger:xpcall` and an
+Error is logged automatically if the function raises one.
 
 ```lua
--- Replace pcall or xpcall with logger equivalent to warn if the function fails
-logger:pcall(myUnsafeFunction, ...)
-logger:xpcall(myUnsafeFunction, myErrorHandler, ...)
--- The module itself also has all these, which operate on a "root" logger:
-Logging:debug("Hello, world")
+logger:pcall(error, "Oh noes") --> logger:error("Oh noes")
+logger:xpcall(error, print, "Whoops") --> logger:error("Whoops"), then print("Whoops")
 ```
