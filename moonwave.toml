@@ -34,7 +34,7 @@ projectName = "Logging"
 url = "https://docs.ozzypig.com"
 baseUrl = "/Logging/"
 tagline = "A logging facility for Roblox"
-trailingSlash = false
+trailingSlash = true
 
 #[navbar]
 #ideableSidebar = true
