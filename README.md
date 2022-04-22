@@ -35,9 +35,9 @@ guide for more.
 * Markdown (.md) linted using [markdownlint](https://github.com/DavidAnson/markdownlint)
 * Luau code (.lua) linted using [selene](https://github.com/Kampfkarren/selene)
 * Built using [Rojo 7](https://github.com/rojo-rbx/rojo):
-  * **default.project.json**](default.project.json)** builds the library as a model,
+  * **default.project.json** builds the library as a model,
     can be included in other Rojo projects which depend on this library.
-  * **test.project.json**](test.project.json)** builds a place which runs unit tests
+  * **test.project.json** builds a place which runs unit tests
     (open in Roblox Studio and click Run).
     * Tests can be found in **tests/Tests.lua**
 * Makefile included with several useful targets (`test`, `serve`) which operate
