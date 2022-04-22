@@ -3,7 +3,26 @@ gitRepoUrl = "https://github.com/Ozzypig/Logging"
 
 gitSourceBranch = "main"
 changelog = true
-classOrder = []
+
+[[classOrder]]
+classes = [
+	"Logging",
+	"Level",
+	"Logger",
+	"Record",
+	"Formatter"
+]
+
+[[classOrder]]
+section = "Handlers"
+collapsed = false
+classes = [
+	"Handler",
+	"NullHandler",
+	"FuncHandler",
+	"OutputHandler",
+	"MemoryHandler"
+]
 
 [docusaurus]
 onBrokenLinks = "throw"
