@@ -26,25 +26,21 @@ logger:setLevel("Info")
 logger:getChild("DataStores"):info("Loaded player data")
 ```
 
-Dive right into the [Getting Started](docs/getting-started.md) guide for more.
-Or check out the [docs](docs/index.md) directory (WIP).
+Dive right into the [Getting Started](https://docs.ozzypig.com/Logging/docs/getting-started)
+guide for more.
 
 ## Development
 
-* [Logging.code-workspace](Logging.code-workspace) for [Visual Studio Code](https://code.visualstudio.com/)
-* Markdown (.md) linted using [markdownlint](https://github.com/DavidAnson/markdownlint),
-  configured with [.markdownlint.yaml](.markdownlint.yaml)
-* Luau code (.lua) linted using [selene](https://github.com/Kampfkarren/selene),
-  configured with [selene.toml](selene.toml)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* Markdown (.md) linted using [markdownlint](https://github.com/DavidAnson/markdownlint)
+* Luau code (.lua) linted using [selene](https://github.com/Kampfkarren/selene)
 * Built using [Rojo 7](https://github.com/rojo-rbx/rojo):
-  * [default.project.json](default.project.json) builds the library as a model, and
+  * **default.project.json**](default.project.json)** builds the library as a model,
     can be included in other Rojo projects which depend on this library.
-  * [test.project.json](test.project.json) builds a place which runs unit tests
+  * **test.project.json**](test.project.json)** builds a place which runs unit tests
     (open in Roblox Studio and click Run).
-    * Tests can be found in [tests/Tests.lua](tests/Tests.lua)
-* [Makefile](Makefile) included with several useful targets (`test`, `serve`)
-  which operate on the Rojo project files above.
-* [wally.toml](wally.toml): package
-  manifest for [wally](https://github.com/UpliftGames/wally)
-* [moonwave.toml](moonwave.toml): Configuration for building documentation using
-  [Moonwave](https://github.com/UpliftGames/moonwave)
+    * Tests can be found in **tests/Tests.lua**
+* Makefile included with several useful targets (`test`, `serve`) which operate
+  on the Rojo project files above.
+* **wally.toml**: package manifest for [wally](https://github.com/UpliftGames/wally)
+* **moonwave.toml** Configuration for building documentation using [Moonwave](https://github.com/UpliftGames/moonwave)
