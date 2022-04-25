@@ -1,5 +1,5 @@
 [package]
-name = "Ozzypig/Logging"
+name = "ozzypig/logging"
 description = "A logging facility for Roblox"
 version = "0.2.0"
 license = "MIT"
