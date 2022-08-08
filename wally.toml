@@ -1,7 +1,7 @@
 [package]
 name = "ozzypig/logging"
 description = "A logging facility for Roblox"
-version = "0.2.0"
+version = "0.2.1"
 license = "MIT"
 authors = ["Ozzypig"]
 realm = "shared"
