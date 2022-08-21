@@ -1,4 +1,6 @@
-VERSION = 0.3.0
+# Load version from Logging/Version.txt
+VERSION_FILE = Logging/Version.txt
+VERSION = $(shell cat $(VERSION_FILE))
 
 ROJO = rojo
 
@@ -9,14 +11,12 @@ OUT = Logging-v$(VERSION).rbxmx
 OUT_TEST = Logging.rbxlx
 
 SRC = Logging
-SRC_VERSION = $(SRC)/Version.lua
 
-.PHONY = test serve docs clean clean-docs clean-build clean-test clean-src-version
+.PHONY = test serve docs clean clean-docs clean-build clean-test
 
 # Main build
 
 $(OUT) : $(ROJO_PROJECT) $(SRC)
-	echo "return \"$(VERSION)\"" > $(SRC_VERSION)
 	$(ROJO) build $(ROJO_PROJECT) --output $(OUT)
 
 $(SRC) : $(shell find $(SRC) -type f)
@@ -47,7 +47,7 @@ docs-serve :
 
 # Clean
 
-clean : clean-build clean-test clean-src-version
+clean : clean-build clean-test
 
 clean-docs :
 	$(RM) -r build
@@ -57,6 +57,3 @@ clean-build :
 
 clean-test :
 	$(RM) $(OUT_TEST)
-
-clean-src-version :
-	$(RM) $(SRC_VERSION)

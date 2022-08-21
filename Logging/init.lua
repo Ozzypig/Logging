@@ -8,7 +8,7 @@ local Logging = {}
 Logging.__index = Logging
 Logging.Logging = Logging
 
-Logging.Version = require(script:WaitForChild("Version"))
+Logging.Version = script:WaitForChild("Version").Value:split("\n")[1]
 Logging.Level = require(script:WaitForChild("Level"))
 Logging.Record = require(script:WaitForChild("Record"))
 Logging.Logger = require(script:WaitForChild("Logger"))
