@@ -3,6 +3,16 @@ local Level = require(script.Parent:WaitForChild("Level"))
 --[=[
 	@class Formatter
 	Creates messages from [Record] objects for use in [Handler]s.
+
+	The format string passed to the constructor may contain any of the following:
+
+	| Format       | Description                                  |
+	|--------------|----------------------------------------------|
+	| `%(asctime)` | Current time rendered as `%Y-%m-%d %I:%M:%S` |
+	| `%(name)`    | Full name of logger                          |
+	| `%(message)` | Record message                               |
+	| `%(level)`   | Record level as name                         |
+	| `%(levelno)` | Record level as number                       |
 ]=]
 local Formatter = {}
 Formatter.__index = Formatter
