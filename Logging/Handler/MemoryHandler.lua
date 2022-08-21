@@ -9,7 +9,7 @@ local Level = require(script.Parent.Parent:WaitForChild("Level"))
 
 local Handler = require(script.Parent)
 
-local MemoryHandler = setmetatable({}, {__index = Handler})
+local MemoryHandler = setmetatable({}, { __index = Handler })
 MemoryHandler.__index = MemoryHandler
 
 --[=[

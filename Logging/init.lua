@@ -8,7 +8,7 @@ local Logging = {}
 Logging.__index = Logging
 Logging.Logging = Logging
 
-Logging.Version = require(script:WaitForChild("Version"))
+Logging.Version = script:WaitForChild("Version").Value:split("\n")[1]
 Logging.Level = require(script:WaitForChild("Level"))
 Logging.Record = require(script:WaitForChild("Record"))
 Logging.Logger = require(script:WaitForChild("Logger"))
@@ -23,13 +23,26 @@ Logging.ROOT_LOGGER_NAME = "Logging"
 Logging.ROOT_LOGGER_LEVEL = Logging.Level.Warning
 Logging.ROOT_LOGGER_METHODS = {
 	-- Standard log methods
-	"log", "debug", "info", "warning", "error", "critical",
+	"log",
+	"debug",
+	"info",
+	"warning",
+	"error",
+	"critical",
 	-- Wrappers
-	"wrap", "print", "warn", "pcall", "xpcall",
+	"wrap",
+	"print",
+	"warn",
+	"pcall",
+	"xpcall",
 	-- Logger configuration
-	"setLevel", "isEnabledFor",
-	"addHandler", "removeHandler",
-	"addFilter", "removeFilter", "filter"
+	"setLevel",
+	"isEnabledFor",
+	"addHandler",
+	"removeHandler",
+	"addFilter",
+	"removeFilter",
+	"filter",
 }
 
 --[=[
@@ -41,7 +54,7 @@ Logging.ROOT_LOGGER_METHODS = {
 ]=]
 function Logging.new()
 	local self = setmetatable({
-		rootLogger = nil;
+		rootLogger = nil,
 	}, Logging)
 	return self
 end
@@ -105,7 +118,7 @@ function Logging:basicConfig(options)
 		outputHandler:setFormatter(formatter)
 		logger:addHandler(outputHandler)
 	else
-		warn("Logging:basicConfig failed: root logger already has at least one handler. Set option \"force\" to silence.")
+		warn('Logging:basicConfig failed: root logger already has at least one handler. Set option "force" to silence.')
 	end
 end
 

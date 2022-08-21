@@ -3,6 +3,16 @@ local Level = require(script.Parent:WaitForChild("Level"))
 --[=[
 	@class Formatter
 	Creates messages from [Record] objects for use in [Handler]s.
+
+	The format string passed to the constructor may contain any of the following:
+
+	| Format       | Description                                  |
+	|--------------|----------------------------------------------|
+	| `%(asctime)` | Current time rendered as `%Y-%m-%d %I:%M:%S` |
+	| `%(name)`    | Full name of logger                          |
+	| `%(message)` | Record message                               |
+	| `%(level)`   | Record level as name                         |
+	| `%(levelno)` | Record level as number                       |
 ]=]
 local Formatter = {}
 Formatter.__index = Formatter
@@ -28,7 +38,7 @@ Formatter.S_MESSAGE = "message"
 ]=]
 function Formatter.new(fmt)
 	local self = setmetatable({
-		fmt = fmt or "%(message)s";
+		fmt = fmt or "%(message)s",
 	}, Formatter)
 	return self
 end
@@ -49,7 +59,7 @@ end
 	@param record Record
 ]=]
 function Formatter:format(record)
-	return self.fmt:gsub("%%%((.-)%).", function (s)
+	return self.fmt:gsub("%%%((.-)%).", function(s)
 		if s == Formatter.S_MESSAGE then
 			return record:getMessage()
 		elseif s == Formatter.S_NAME then

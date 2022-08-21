@@ -6,7 +6,7 @@
 ]=]
 local Handler = require(script.Parent)
 
-local FuncHandler = setmetatable({}, {__index = Handler})
+local FuncHandler = setmetatable({}, { __index = Handler })
 FuncHandler.__index = FuncHandler
 
 --[=[
