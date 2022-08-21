@@ -40,9 +40,9 @@ Handler.formatter = Formatter.new()
 ]=]
 function Handler.new()
 	local self = setmetatable({
-		filters = {};
-		level = Level.NotSet;
-		formatter = nil;
+		filters = {},
+		level = Level.NotSet,
+		formatter = nil,
 	}, Handler)
 	return self
 end

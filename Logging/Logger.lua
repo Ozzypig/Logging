@@ -103,13 +103,13 @@ function Logger.new(logging, name, parent)
 	assert(typeof(name) == "string", "name must be string, got " .. typeof(name))
 	local self = setmetatable({
 		logging = logging,
-		name = name;
-		parent = parent;
-		children = {};
-		level = Level.NotSet;
-		handlers = {};
-		filters = {};
-		propagate = true;
+		name = name,
+		parent = parent,
+		children = {},
+		level = Level.NotSet,
+		handlers = {},
+		filters = {},
+		propagate = true,
 	}, Logger)
 	return self
 end
@@ -130,7 +130,8 @@ function Logger:getFullName()
 	if self == self.logging:getRootLogger() then
 		return self.name
 	else
-		return (self.parent and self.parent ~= self.logging:getRootLogger() and self.parent:getFullName() .. "." or "") .. self.name
+		return (self.parent and self.parent ~= self.logging:getRootLogger() and self.parent:getFullName() .. "." or "")
+			.. self.name
 	end
 end
 
@@ -159,7 +160,7 @@ function Logger:getChild(childName)
 		logger = Logger.new(self.logging, childName, self)
 		self.children[childName] = logger
 	end
-	
+
 	return descendantName and logger:getChild(descendantName) or logger
 end
 
@@ -187,7 +188,8 @@ end
 	@return Level
 ]=]
 function Logger:getEffectiveLevel()
-	return self.level ~= Level.NotSet and self.level or (self.parent and self.parent:getEffectiveLevel() or Level.NotSet)
+	return self.level ~= Level.NotSet and self.level
+		or (self.parent and self.parent:getEffectiveLevel() or Level.NotSet)
 end
 
 --[=[
@@ -352,7 +354,6 @@ function Logger:debug(message, ...)
 end
 Logger.print = Logger.debug
 
-
 --[=[
 	@since 0.1.0
 	Invokes [Logger:log] with the level of the record set to [Level.Info].
@@ -414,7 +415,7 @@ end
 function Logger:wrap(callOriginal)
 	-- toS(a, b, c) --> "%s %s %s", a, b, c
 	local function toS(...)
-		local v = {...}
+		local v = { ... }
 		return table.concat(table.create(#v, "%s"), " "), ...
 	end
 	-- print -> logger:debug
@@ -443,7 +444,7 @@ end
 	@return any
 ]=]
 function Logger:pcall(func, ...)
-	local retVals = {pcall(func, ...)}
+	local retVals = { pcall(func, ...) }
 	if not retVals[1] then
 		self:log(Logger.pcallLevel, "%s", retVals[2])
 	end
@@ -460,7 +461,7 @@ end
 	@return any
 ]=]
 function Logger:xpcall(func, errorHandler, ...)
-	return xpcall(func, function (err)
+	return xpcall(func, function(err)
 		self:log(Logger.pcallLevel, "%s", err)
 		return errorHandler(err)
 	end, ...)

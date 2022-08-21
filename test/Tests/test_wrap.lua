@@ -3,7 +3,7 @@ function test_wrap(Logging)
 	local expectedLevel = nil
 	local message = "Hello, world"
 	local logger = Logging:getLogger("test_wrap")
-	logger:addHandler(function (record)
+	logger:addHandler(function(record)
 		assert(record.level == expectedLevel, "Expected level " .. expectedLevel .. ", emit level " .. record.level)
 	end)
 	local print, warn = logger:wrap()

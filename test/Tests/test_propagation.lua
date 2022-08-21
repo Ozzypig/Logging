@@ -7,7 +7,7 @@ function test_propagation(Logging)
 	local logger = Logging:getLogger("tests_propagation")
 	local childLogger = logger:getChild("child")
 	logger:setLevel(levelLower)
-	logger:addHandler(function (_record)
+	logger:addHandler(function(_record)
 		handled += 1
 	end)
 	childLogger:log(level, message)

@@ -6,7 +6,7 @@ function test_levels(Logging)
 	local levelLower = Logging.Level.Debug
 	local logger = Logging:getLogger("test_levels")
 	logger:setLevel(level)
-	logger:addHandler(function (_record)
+	logger:addHandler(function(_record)
 		handled += 1
 	end)
 	logger:log(levelLower, message)

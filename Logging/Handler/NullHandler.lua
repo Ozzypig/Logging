@@ -7,7 +7,7 @@
 ]=]
 local Handler = require(script.Parent)
 
-local NullHandler = setmetatable({}, {__index = Handler})
+local NullHandler = setmetatable({}, { __index = Handler })
 NullHandler.__index = NullHandler
 
 --[=[

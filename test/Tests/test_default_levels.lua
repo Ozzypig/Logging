@@ -3,7 +3,7 @@ function test_default_levels(Logging)
 	local handled = 0
 	local message = "Hello, world"
 	local logger = Logging:getLogger("test_default_levels")
-	logger:addHandler(function (_record)
+	logger:addHandler(function(_record)
 		handled += 1
 	end)
 	logger:debug(message)

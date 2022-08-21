@@ -20,7 +20,7 @@ function test_MemoryHandler(Logging)
 	assert(memoryHandler:size() == 0, "MemoryHandler did not flush after error")
 	-- target handler
 	local targetHandled = 0
-	memoryHandler:setTarget(Logging.FuncHandler.new(function (_record)
+	memoryHandler:setTarget(Logging.FuncHandler.new(function(_record)
 		targetHandled += 1
 	end))
 	for i = 1, capacity - 1 do

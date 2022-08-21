@@ -8,7 +8,7 @@ local Level = require(script.Parent.Parent:WaitForChild("Level"))
 
 local Handler = require(script.Parent)
 
-local OutputHandler = setmetatable({}, {__index = Handler})
+local OutputHandler = setmetatable({}, { __index = Handler })
 OutputHandler.__index = OutputHandler
 
 --[=[

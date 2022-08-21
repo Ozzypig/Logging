@@ -3,10 +3,10 @@ function test_filtering(Logging)
 	local handled = 0
 	local message = "Hello, world"
 	local logger = Logging:getLogger("test_filtering")
-	logger:addHandler(function (_record)
+	logger:addHandler(function(_record)
 		handled += 1
 	end)
-	logger:addFilter(function (_logger, record)
+	logger:addFilter(function(_logger, record)
 		return record:getMessage() == message
 	end)
 	logger:warning("Goodbye, world")

@@ -1,6 +1,6 @@
 --- Records should format their message properly according to the provided arguments.
 function test_record_message_formatting(Logging)
-	Logging:addHandler(function (_record) end)
+	Logging:addHandler(function(_record) end)
 
 	local logger = Logging:getLogger("test_record_message_formatting")
 	local message = "%s 1 %s 2 %d"
